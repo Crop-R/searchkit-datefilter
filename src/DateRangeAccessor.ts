@@ -95,6 +95,8 @@ export class DateRangeAccessor extends FilterBasedAccessor<ObjectState> {
         id: this.options.id,
         remove: this.clearState
       }
+      console.log('test')
+      console.log(fromDateRangeFilter)
 
       return query
         .addFilter(this.key+'_to', fromDateRangeFilter)
