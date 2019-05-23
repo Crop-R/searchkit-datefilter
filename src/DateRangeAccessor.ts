@@ -95,8 +95,6 @@ export class DateRangeAccessor extends FilterBasedAccessor<ObjectState> {
         id: this.options.id,
         remove: this.clearState
       }
-      console.log('test')
-      console.log(fromDateRangeFilter)
 
       return query
         .addFilter(this.key+'_to', fromDateRangeFilter)
@@ -127,11 +125,7 @@ export class DateRangeAccessor extends FilterBasedAccessor<ObjectState> {
         otherFilters,
         this.fieldContext.wrapFilter(
           DateRangeQuery(this.options.fromDateField, {
-            lte: +val.toDate
-          })
-        ),
-        this.fieldContext.wrapFilter(
-          DateRangeQuery(this.options.toDateField, {
+            lte: +val.toDate,
             gte: +val.fromDate
           })
         )
