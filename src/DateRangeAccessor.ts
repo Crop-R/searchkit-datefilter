@@ -118,6 +118,7 @@ export class DateRangeAccessor extends FilterBasedAccessor<ObjectState> {
   }
 
   buildOwnQuery(query) {
+    console.log(query)
     if (this.state.hasValue()) {
       let val:any = this.state.getValue()
       let otherFilters = query.getFiltersWithoutKeys(this.key)
