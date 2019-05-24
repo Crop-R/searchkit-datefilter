@@ -63,9 +63,11 @@ var DateRangeAccessor = /** @class */ (function (_super) {
         if (this.state.hasValue()) {
             var val = this.state.getValue();
             var fromDateRangeFilter = this.fieldContext.wrapFilter(DateRangeQuery_1.DateRangeQuery(this.options.fromDateField, {
-                lte: +val.toDate
+                lte: +val.toDate,
+                gte: +val.fromDate
             }));
             var toDateRangeFilter = this.fieldContext.wrapFilter(DateRangeQuery_1.DateRangeQuery(this.options.toDateField, {
+                lte: +val.toDate,
                 gte: +val.fromDate
             }));
             var fromVal = this.rangeFormatter(val.fromDate);
@@ -104,9 +106,11 @@ var DateRangeAccessor = /** @class */ (function (_super) {
             var filters = searchkit_1.BoolMust([
                 otherFilters,
                 this.fieldContext.wrapFilter(DateRangeQuery_1.DateRangeQuery(this.options.fromDateField, {
-                    lte: +val.toDate
+                    lte: +val.toDate,
+                    gte: +val.fromDate
                 })),
                 this.fieldContext.wrapFilter(DateRangeQuery_1.DateRangeQuery(this.options.toDateField, {
+                    lte: +val.toDate,
                     gte: +val.fromDate
                 }))
             ]);
