@@ -66,9 +66,15 @@ var DateRangeCalendar = /** @class */ (function (_super) {
                 endOpen: false,
             });
             _this.handleChange(value);
+            if (typeof (_this.props.onStartValueChange) === 'function') {
+                _this.props.onStartValueChange(value);
+            }
         };
         _this.onEndChange = function (value) {
             _this.handleChange(value);
+            if (typeof (_this.props.onEndValueChange) === 'function') {
+                _this.props.onEndValueChange(value);
+            }
         };
         _this.clearState = function () {
             var onFinished = _this.props.onFinished;

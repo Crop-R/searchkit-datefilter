@@ -89,10 +89,16 @@ export class DateRangeCalendar extends SearchkitComponent<any, any> {
       endOpen: false,
     });
     this.handleChange(value)
+    if (typeof(this.props.onStartValueChange) === 'function') {
+      this.props.onStartValueChange(value)  
+    }
   }
 
   onEndChange = (value) => {
     this.handleChange(value)
+    if (typeof(this.props.onEndValueChange) === 'function')  {
+      this.props.onEndValueChange(value)  
+    }
   }
 
   clearState = () => {
