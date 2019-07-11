@@ -13,7 +13,7 @@ const enUS = require('rc-calendar').enUS;
 const DatePicker = require('rc-calendar/lib/Picker');
 
 const format = 'dddd D. MMMM YYYY';
-const fullFormat = 'ddd D.M.Y';
+const fullFormat = 'YYYY-MM-DD';
 
 export class Picker extends SearchkitComponent<any, any> {
   render() {
@@ -139,8 +139,8 @@ export class DateRangeCalendar extends SearchkitComponent<any, any> {
     const notToday = startValue > +moment().endOf("day")
                   || startValue < +moment().startOf("day")
     onFinished({
-      fromDate: notToday && startValue.startOf("day") || startValue,
-      toDate: endValue && endValue.endOf("day")
+      fromDate: notToday && startValue.utc().startOf("day") || startValue,
+      toDate: endValue && endValue.utc().endOf("day")
     })
   }
 

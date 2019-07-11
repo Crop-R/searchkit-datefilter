@@ -22,7 +22,7 @@ var RangeCalendar = require('rc-calendar/lib/RangeCalendar');
 var enUS = require('rc-calendar').enUS;
 var DatePicker = require('rc-calendar/lib/Picker');
 var format = 'dddd D. MMMM YYYY';
-var fullFormat = 'ddd D.M.Y';
+var fullFormat = 'YYYY-MM-DD';
 var Picker = /** @class */ (function (_super) {
     __extends(Picker, _super);
     function Picker() {
@@ -111,8 +111,8 @@ var DateRangeCalendar = /** @class */ (function (_super) {
             var notToday = startValue > +moment().endOf("day")
                 || startValue < +moment().startOf("day");
             onFinished({
-                fromDate: notToday && startValue.startOf("day") || startValue,
-                toDate: endValue && endValue.endOf("day")
+                fromDate: notToday && startValue.utc().startOf("day") || startValue,
+                toDate: endValue && endValue.utc().endOf("day")
             });
         };
         var fromDate = props.fromDate, toDate = props.toDate;
@@ -125,7 +125,7 @@ var DateRangeCalendar = /** @class */ (function (_super) {
     DateRangeCalendar.prototype.render = function () {
         var state = this.state;
         var _a = this.props, fromDate = _a.fromDate, toDate = _a.toDate, fromDateValue = _a.fromDateValue, toDateValue = _a.toDateValue;
-        var fromLabel = this.props.formLabel || "Form";
+        var fromLabel = this.props.fromLabel || "From";
         var toLabel = this.props.toLabel || "To";
         return (React.createElement("div", null,
             React.createElement(Picker, { onOpenChange: this.onStartOpenChange, open: this.state.startOpen, type: "start", showValue: fromDateValue, value: [fromDate, toDate], onChange: this.onStartChange, dateInputPlaceholder: fromLabel }),
