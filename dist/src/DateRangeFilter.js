@@ -134,7 +134,7 @@ var DateRangeFilter = /** @class */ (function (_super) {
     }, searchkit_1.SearchkitComponent.propTypes);
     DateRangeFilter.defaultProps = {
         containerComponent: searchkit_1.Panel,
-        rangeFormatter: function (v) { return moment(parseInt("" + v)).utc().format('YYYY-MM-DD'); }
+        rangeFormatter: function (v) { return moment(parseInt("" + v)).utc().format('DD-MM-YYYY'); }
     };
     return DateRangeFilter;
 }(searchkit_1.SearchkitComponent));

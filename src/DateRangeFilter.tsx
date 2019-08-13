@@ -91,7 +91,7 @@ export class DateRangeFilter extends SearchkitComponent<DateRangeFilterProps, an
 
   static defaultProps = {
     containerComponent: Panel,
-    rangeFormatter: (v) => moment(parseInt(""+v)).utc().format('YYYY-MM-DD')
+    rangeFormatter: (v) => moment(parseInt(""+v)).utc().format('DD-MM-YYYY')
   }
 
   constructor(props){

@@ -13,7 +13,7 @@ const enUS = require('rc-calendar').enUS;
 const DatePicker = require('rc-calendar/lib/Picker');
 
 const format = 'dddd D. MMMM YYYY';
-const fullFormat = 'YYYY-MM-DD';
+const fullFormat = 'DD-MM-YYYY';
 
 export class Picker extends SearchkitComponent<any, any> {
   render() {
@@ -42,6 +42,7 @@ export class Picker extends SearchkitComponent<any, any> {
         align={{
           points: ['bl', 'tl']
         }}
+        getCalendarContainer={() => {return document.getElementById('cloudfarm-sidebar');}}
       >
         {
           () => (

@@ -22,7 +22,7 @@ var RangeCalendar = require('rc-calendar/lib/RangeCalendar');
 var enUS = require('rc-calendar').enUS;
 var DatePicker = require('rc-calendar/lib/Picker');
 var format = 'dddd D. MMMM YYYY';
-var fullFormat = 'YYYY-MM-DD';
+var fullFormat = 'DD-MM-YYYY';
 var Picker = /** @class */ (function (_super) {
     __extends(Picker, _super);
     function Picker() {
@@ -35,7 +35,7 @@ var Picker = /** @class */ (function (_super) {
         var calendar = (React.createElement(RangeCalendar, { type: this.props.type, locale: enUS, format: format, onChange: props.onChange, disabledDate: props.disabledDate, showToday: true, showOk: false, showClear: false }));
         return (React.createElement(DatePicker, { prefixCls: "sk-calendar-picker", open: this.props.open, onOpenChange: this.props.onOpenChange, calendar: calendar, value: props.value, dateFormat: format, align: {
                 points: ['bl', 'tl']
-            } }, function () { return (React.createElement("div", { className: "sk-date-box" },
+            }, getCalendarContainer: function () { return document.getElementById('cloudfarm-sidebar'); } }, function () { return (React.createElement("div", { className: "sk-date-box" },
             React.createElement("div", { className: "sk-date-box__label", style: { flex: "1 0 80px" } },
                 _this.props.dateInputPlaceholder,
                 ":"),
