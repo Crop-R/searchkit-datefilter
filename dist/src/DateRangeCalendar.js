@@ -35,7 +35,7 @@ var Picker = /** @class */ (function (_super) {
         var calendar = (React.createElement(RangeCalendar, { type: this.props.type, locale: enUS, format: format, onChange: props.onChange, disabledDate: props.disabledDate, showToday: true, showOk: false, showClear: false }));
         return (React.createElement(DatePicker, { prefixCls: "sk-calendar-picker", open: this.props.open, onOpenChange: this.props.onOpenChange, calendar: calendar, value: props.value, dateFormat: format, align: {
                 points: ['bl', 'tl']
-            }, getCalendarContainer: function () { return document.getElementById('cloudfarm-sidebar'); } }, function () { return (React.createElement("div", { className: "sk-date-box" },
+            }, getCalendarContainer: this.props.containerId ? function () { return document.getElementById(_this.props.containerId); } : null }, function () { return (React.createElement("div", { className: "sk-date-box" },
             React.createElement("div", { className: "sk-date-box__label", style: { flex: "1 0 80px" } },
                 _this.props.dateInputPlaceholder,
                 ":"),
@@ -128,8 +128,8 @@ var DateRangeCalendar = /** @class */ (function (_super) {
         var fromLabel = this.props.fromLabel || "From";
         var toLabel = this.props.toLabel || "To";
         return (React.createElement("div", null,
-            React.createElement(Picker, { onOpenChange: this.onStartOpenChange, open: this.state.startOpen, type: "start", showValue: fromDateValue, value: [fromDate, toDate], onChange: this.onStartChange, dateInputPlaceholder: fromLabel }),
-            React.createElement(Picker, { onOpenChange: this.onEndOpenChange, open: this.state.endOpen, type: "end", showValue: toDateValue, disabledDate: this.disabledStartDate, value: [fromDate, toDate], onChange: this.onEndChange, dateInputPlaceholder: toLabel })));
+            React.createElement(Picker, { onOpenChange: this.onStartOpenChange, open: this.state.startOpen, type: "start", showValue: fromDateValue, value: [fromDate, toDate], onChange: this.onStartChange, dateInputPlaceholder: fromLabel, containerId: this.props.containerId }),
+            React.createElement(Picker, { onOpenChange: this.onEndOpenChange, open: this.state.endOpen, type: "end", showValue: toDateValue, disabledDate: this.disabledStartDate, value: [fromDate, toDate], onChange: this.onEndChange, dateInputPlaceholder: toLabel, containerId: this.props.containerId })));
     };
     return DateRangeCalendar;
 }(searchkit_1.SearchkitComponent));

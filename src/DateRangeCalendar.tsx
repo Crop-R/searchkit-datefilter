@@ -42,7 +42,7 @@ export class Picker extends SearchkitComponent<any, any> {
         align={{
           points: ['bl', 'tl']
         }}
-        getCalendarContainer={() => {return document.getElementById('cloudfarm-sidebar');}}
+        getCalendarContainer={this.props.containerId?() => {return document.getElementById(this.props.containerId);}:null}
       >
         {
           () => (
@@ -162,6 +162,7 @@ export class DateRangeCalendar extends SearchkitComponent<any, any> {
           value={[fromDate, toDate]}
           onChange={this.onStartChange}
           dateInputPlaceholder={fromLabel}
+          containerId={this.props.containerId}
         />
         <Picker
           onOpenChange={this.onEndOpenChange}
@@ -172,6 +173,7 @@ export class DateRangeCalendar extends SearchkitComponent<any, any> {
           value={[fromDate, toDate]}
           onChange={this.onEndChange}
           dateInputPlaceholder={toLabel}
+          containerId={this.props.containerId}
         />
       </div>
     )

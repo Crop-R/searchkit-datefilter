@@ -1,3 +1,23 @@
+.sk-date-box {
+  display: flex;
+  margin: 0 0 10px;
+  font-size: 14px; }
+  .sk-date-box__label:focus, .sk-date-box__value:focus {
+    outline: 0; }
+  .sk-date-box__label {
+    color: #666;
+    font-weight: 300;
+    align-self: center; }
+  .sk-date-box__value {
+    line-height: 1;
+    background: #f4f4f4;
+    color: #666;
+    border-radius: 8px;
+    padding: 0.5em;
+    min-height: 2em; }
+
+.sk-calendar-picker {
+  z-index: 1; }
 .rc-calendar {
   box-sizing: border-box;
 }
@@ -1176,23 +1196,3 @@
   border-top-color: #3FC7FA;
   color: #3FC7FA;
 }
-.sk-date-box {
-  display: flex;
-  margin: 0 0 10px;
-  font-size: 14px; }
-  .sk-date-box__label:focus, .sk-date-box__value:focus {
-    outline: 0; }
-  .sk-date-box__label {
-    color: #666;
-    font-weight: 300;
-    align-self: center; }
-  .sk-date-box__value {
-    line-height: 1;
-    background: #f4f4f4;
-    color: #666;
-    border-radius: 8px;
-    padding: 0.5em;
-    min-height: 2em; }
-
-.sk-calendar-picker {
-  z-index: 1; }
